@@ -1,0 +1,420 @@
+{
+  "@context": {
+    "bat": "https://w3id.org/eudpp/battery#",
+    "batcat": "https://w3id.org/eudpp/battery-categories#",
+    "batext": "https://w3id.org/eudpp/battery-extinguisher-classes#",
+    "batlab": "https://w3id.org/eudpp/battery-labeling#",
+    "batloc": "https://w3id.org/eudpp/battery-locations#",
+    "batmat": "https://w3id.org/eudpp/battery-materials#",
+    "batmet": "https://w3id.org/eudpp/battery-metals#",
+    "batperf": "https://w3id.org/eudpp/battery-performance#",
+    "batstat": "https://w3id.org/eudpp/battery-statuses#",
+    "eudpp": "https://w3id.org/eudpp#",
+    "ex": "https://martint518.github.io/temta-dpp-test/EV-TEST-0001.jsonld#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "siunit": "https://si-digital-framework.org/SI/units/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "ex:plant-1",
+      "@type": "eudpp:Facility",
+      "eudpp:hasUniqueFacilityIdentifier": {
+        "@id": "ex:facility-id-1"
+      }
+    },
+    {
+      "@id": "ex:eu-doc-1",
+      "@type": "eudpp:EUDeclarationOfConformity"
+    },
+    {
+      "@id": "ex:idle-temperature-range-1",
+      "@type": "batperf:TemperatureExposure",
+      "batperf:temperatureRangeIdleStateLowerBoundary": {
+        "@type": "xsd:decimal",
+        "@value": "-20.0"
+      },
+      "batperf:temperatureRangeIdleStateUpperBoundary": {
+        "@type": "xsd:decimal",
+        "@value": "45.0"
+      }
+    },
+    {
+      "@id": "ex:manufacturer",
+      "@type": "eudpp:Actor",
+      "eudpp:hasUniqueOperatorIdentifier": {
+        "@id": "ex:operator-id-1"
+      }
+    },
+    {
+      "@id": "ex:design-life-1",
+      "@type": "batperf:BatteryDurability",
+      "batperf:capacityThresholdForExhaustion": {
+        "@type": "xsd:decimal",
+        "@value": "70.0"
+      },
+      "batperf:expectedLifetimeCalendarYears": {
+        "@type": "xsd:decimal",
+        "@value": "8.0"
+      },
+      "batperf:expectedLifetimeCycles": 1500
+    },
+    {
+      "@id": "ex:battery-1",
+      "@type": "bat:Battery",
+      "bat:dismantlingInformation": {
+        "@type": "xsd:anyURI",
+        "@value": "https://example.org/doc/ev/dismantling.pdf"
+      },
+      "bat:hasBatteryStatus": {
+        "@id": "batstat:Original"
+      },
+      "bat:partNumber": [
+        "BMS-4410",
+        "MOD-12S-B3",
+        "PACK-75-A1"
+      ],
+      "bat:safetyMeasures": {
+        "@type": "xsd:anyURI",
+        "@value": "https://example.org/doc/ev/safety.pdf"
+      },
+      "bat:testReportResults": {
+        "@type": "xsd:anyURI",
+        "@value": "https://example.org/doc/ev/test-reports.pdf"
+      },
+      "bat:warrantyPeriod": {
+        "@type": "xsd:duration",
+        "@value": "P8Y"
+      },
+      "batlab:hasBatteryLabel": {
+        "@id": "ex:label-1"
+      },
+      "batmat:hasBatteryChemistry": {
+        "@id": "ex:chemistry-1"
+      },
+      "batperf:hasBatteryDurability": {
+        "@id": "ex:design-life-1"
+      },
+      "batperf:hasBatteryPerformance": {
+        "@id": "ex:nameplate-1"
+      },
+      "batperf:hasBatteryStateRecord": [
+        {
+          "@id": "ex:state-2029-06-01"
+        },
+        {
+          "@id": "ex:state-2027-09-01"
+        }
+      ],
+      "batperf:hasTemperatureExposure": {
+        "@id": "ex:idle-temperature-range-1"
+      },
+      "eudpp:containsSubstanceOfConcern": {
+        "@id": "ex:soc-1"
+      },
+      "eudpp:hasDPP": {
+        "@id": "ex:dpp-1"
+      },
+      "eudpp:hasEUDeclarationOfConformity": {
+        "@id": "ex:eu-doc-1"
+      },
+      "eudpp:hasEconomicOperator": {
+        "@id": "ex:economic-operator-1"
+      },
+      "eudpp:hasManufacturer": {
+        "@id": "ex:manufacturer"
+      },
+      "eudpp:hasMaterial": [
+        {
+          "@id": "ex:material-lithium"
+        },
+        {
+          "@id": "ex:chemistry-1"
+        },
+        {
+          "@id": "ex:material-cobalt"
+        },
+        {
+          "@id": "ex:material-lead"
+        },
+        {
+          "@id": "ex:material-nickel"
+        }
+      ],
+      "eudpp:hasProductGroup": {
+        "@id": "batcat:ElectricVehicleBattery"
+      },
+      "eudpp:hasProperty": [
+        {
+          "@id": "ex:carbon-footprint-1"
+        },
+        {
+          "@id": "ex:mass-1"
+        },
+        {
+          "@id": "ex:renewable-content-1"
+        }
+      ],
+      "eudpp:hasUniqueProductIdentifier": {
+        "@id": "ex:pid-1"
+      },
+      "eudpp:manufacturingDate": {
+        "@type": "xsd:gYearMonth",
+        "@value": "2027-03"
+      },
+      "eudpp:usesFacility": {
+        "@id": "ex:plant-1"
+      }
+    },
+    {
+      "@id": "ex:material-cobalt",
+      "@type": "eudpp:MaterialOfComposition",
+      "eudpp:hasMaterialType": {
+        "@id": "batmet:Cobalt"
+      },
+      "eudpp:isCriticalRawMaterial": true,
+      "eudpp:materialRecycledContent": {
+        "@type": "xsd:decimal",
+        "@value": "22.0"
+      }
+    },
+    {
+      "@id": "ex:economic-operator-1",
+      "@type": "eudpp:Actor",
+      "eudpp:hasUniqueOperatorIdentifier": {
+        "@id": "ex:economic-operator-id-1"
+      }
+    },
+    {
+      "@id": "ex:facility-id-1",
+      "@type": "eudpp:FacilityIdentifier"
+    },
+    {
+      "@id": "ex:dppid-1",
+      "@type": "eudpp:DPPIdentifier"
+    },
+    {
+      "@id": "ex:material-nickel",
+      "@type": "eudpp:MaterialOfComposition",
+      "eudpp:hasMaterialType": {
+        "@id": "batmet:Nickel"
+      },
+      "eudpp:isCriticalRawMaterial": true,
+      "eudpp:materialRecycledContent": {
+        "@type": "xsd:decimal",
+        "@value": "16.0"
+      }
+    },
+    {
+      "@id": "ex:mass-1",
+      "@type": "eudpp:Weight"
+    },
+    {
+      "@id": "ex:label-1",
+      "@type": "batlab:BatteryLabel",
+      "batlab:extinguishingAgent": {
+        "@id": "batext:ClassD"
+      },
+      "batlab:separateCollectionSymbol": {
+        "@type": "xsd:anyURI",
+        "@value": "https://example.org/img/separate-collection.svg"
+      }
+    },
+    {
+      "@id": "ex:soc-1",
+      "@type": "eudpp:SubstanceOfConcern",
+      "eudpp:hasImpactOnEnvironment": "Aquatic toxicity if the cell casing is breached; see the safety data sheet."
+    },
+    {
+      "@id": "ex:nameplate-1",
+      "@type": "batperf:BatteryPerformance",
+      "batperf:cRateOfCycleLifeTest": {
+        "@type": "xsd:decimal",
+        "@value": "1.0"
+      },
+      "batperf:cycleLifeReferenceTest": "IEC 62660-1:2018, 1C/1C at 25 degrees Celsius, 100 percent depth of discharge",
+      "batperf:initialInternalResistance": {
+        "@type": "xsd:decimal",
+        "@value": "0.045"
+      },
+      "batperf:initialRoundTripEnergyEfficiency": {
+        "@type": "xsd:decimal",
+        "@value": "95.0"
+      },
+      "batperf:maximumPermittedBatteryPower": {
+        "@type": "xsd:decimal",
+        "@value": "160000.0"
+      },
+      "batperf:maximumVoltage": {
+        "@type": "xsd:decimal",
+        "@value": "430.0"
+      },
+      "batperf:minimumVoltage": {
+        "@type": "xsd:decimal",
+        "@value": "300.0"
+      },
+      "batperf:nominalVoltage": {
+        "@type": "xsd:decimal",
+        "@value": "400.0"
+      },
+      "batperf:originalPowerCapability": {
+        "@type": "xsd:decimal",
+        "@value": "150000.0"
+      },
+      "batperf:ratedCapacity": {
+        "@type": "xsd:decimal",
+        "@value": "232.0"
+      },
+      "batperf:roundTripEnergyEfficiencyAt50PercentCycleLife": {
+        "@type": "xsd:decimal",
+        "@value": "92.0"
+      }
+    },
+    {
+      "@id": "ex:material-lead",
+      "@type": "eudpp:MaterialOfComposition",
+      "eudpp:hasMaterialType": {
+        "@id": "batmet:Lead"
+      },
+      "eudpp:isCriticalRawMaterial": false,
+      "eudpp:materialRecycledContent": {
+        "@type": "xsd:decimal",
+        "@value": "85.0"
+      }
+    },
+    {
+      "@id": "ex:operator-id-1",
+      "@type": "eudpp:ActorIdentifier"
+    },
+    {
+      "@id": "ex:pid-1",
+      "@type": "eudpp:ProductIdentifier"
+    },
+    {
+      "@id": "ex:renewable-content-1",
+      "@type": "eudpp:SustainableRenewableMaterialsUse"
+    },
+    {
+      "@id": "ex:dpp-1",
+      "@type": "eudpp:DPP",
+      "eudpp:dppStatus": "Active",
+      "eudpp:granularity": "item",
+      "eudpp:hasDigitalProductPassportId": {
+        "@id": "ex:dppid-1"
+      },
+      "eudpp:lastUpdate": {
+        "@type": "xsd:dateTimeStamp",
+        "@value": "2029-06-04T07:15:00Z"
+      }
+    },
+    {
+      "@id": "ex:chemistry-1",
+      "@type": "batmat:BatteryChemistry",
+      "batmat:hasBatteryLocation": [
+        {
+          "@id": "batloc:Electrolyte"
+        },
+        {
+          "@id": "batloc:Anode"
+        },
+        {
+          "@id": "batloc:Cathode"
+        }
+      ],
+      "eudpp:isCriticalRawMaterial": true
+    },
+    {
+      "@id": "ex:state-2027-09-01",
+      "@type": "batperf:BatteryStateRecord",
+      "batperf:capacityFade": {
+        "@type": "xsd:decimal",
+        "@value": "0.8"
+      },
+      "batperf:internalResistanceIncrease": {
+        "@type": "xsd:decimal",
+        "@value": "0.4"
+      },
+      "batperf:numberOfFullCycles": 64,
+      "batperf:powerFade": {
+        "@type": "xsd:decimal",
+        "@value": "0.5"
+      },
+      "batperf:roundTripEnergyEfficiencyFade": {
+        "@type": "xsd:decimal",
+        "@value": "0.4"
+      },
+      "batperf:stateOfCertifiedEnergy": {
+        "@type": "xsd:decimal",
+        "@value": "99.1"
+      },
+      "batperf:stateOfCharge": {
+        "@type": "xsd:decimal",
+        "@value": "82.0"
+      },
+      "batperf:temperatureInformation": {
+        "@type": "xsd:decimal",
+        "@value": "21.0"
+      }
+    },
+    {
+      "@id": "ex:material-lithium",
+      "@type": "eudpp:MaterialOfComposition",
+      "eudpp:hasMaterialType": {
+        "@id": "batmet:Lithium"
+      },
+      "eudpp:isCriticalRawMaterial": true,
+      "eudpp:materialRecycledContent": {
+        "@type": "xsd:decimal",
+        "@value": "9.0"
+      }
+    },
+    {
+      "@id": "ex:economic-operator-id-1",
+      "@type": "eudpp:ActorIdentifier"
+    },
+    {
+      "@id": "ex:state-2029-06-01",
+      "@type": "batperf:BatteryStateRecord",
+      "batperf:capacityFade": {
+        "@type": "xsd:decimal",
+        "@value": "5.3"
+      },
+      "batperf:internalResistanceIncrease": {
+        "@type": "xsd:decimal",
+        "@value": "3.1"
+      },
+      "batperf:numberOfFullCycles": 412,
+      "batperf:powerFade": {
+        "@type": "xsd:decimal",
+        "@value": "4.1"
+      },
+      "batperf:roundTripEnergyEfficiencyFade": {
+        "@type": "xsd:decimal",
+        "@value": "2.2"
+      },
+      "batperf:stateOfCertifiedEnergy": {
+        "@type": "xsd:decimal",
+        "@value": "94.6"
+      },
+      "batperf:stateOfCharge": {
+        "@type": "xsd:decimal",
+        "@value": "64.0"
+      },
+      "batperf:temperatureInformation": {
+        "@type": "xsd:decimal",
+        "@value": "24.0"
+      }
+    },
+    {
+      "@id": "ex:carbon-footprint-1",
+      "@type": "eudpp:CarbonFootprint",
+      "eudpp:hasMeasurementUnit": {
+        "@id": "siunit:kilogram"
+      },
+      "eudpp:numericalValue": {
+        "@type": "xsd:decimal",
+        "@value": "52.4"
+      }
+    }
+  ]
+}
